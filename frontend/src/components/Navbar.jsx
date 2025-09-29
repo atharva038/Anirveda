@@ -14,6 +14,7 @@ const Navbar = () => {
     {path: "/", name: "Home", icon: "🏠"},
     {path: "/traceability", name: "Traceability", icon: "🔍"},
     {path: "/marketplace", name: "Marketplace", icon: "🛒"},
+    {path: "/dashboard", name: "Dashboard", icon: "📊"},
   ];
 
   return (
