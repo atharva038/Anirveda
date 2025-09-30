@@ -5,6 +5,7 @@ import {ThemeToggle} from "./ThemeToggle";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFormsDropdownOpen, setIsFormsDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,7 +16,14 @@ const Navbar = () => {
     {path: "/traceability", name: "Traceability", icon: "🔍"},
     {path: "/marketplace", name: "Marketplace", icon: "🛒"},
     {path: "/dashboard", name: "Dashboard", icon: "📊"},
+    {path: "/forms", name: "Forms", icon: "📝"},
   ];
+
+  const handleFormsNavigation = (path) => {
+    navigate(path);
+    setIsFormsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-lg transition-colors duration-300">
@@ -25,7 +33,10 @@ const Navbar = () => {
           <Link
             to="/"
             className="flex items-center space-x-2 group"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsFormsDropdownOpen(false);
+            }}
           >
             <div className="text-2xl group-hover:scale-110 transition-transform duration-200">
               🌱
@@ -51,6 +62,7 @@ const Navbar = () => {
                       ? "bg-emerald-600 text-white shadow-md hover:bg-emerald-700 scale-105"
                       : "text-foreground hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 hover:scale-105"
                   }`}
+                  onClick={() => setIsFormsDropdownOpen(false)}
                 >
                   <span className="mr-2 text-sm">{link.icon}</span>
                   {link.name}
@@ -78,7 +90,7 @@ const Navbar = () => {
             <Button
               size="sm"
               className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg"
-              onClick={() => alert("Farmer registration coming soon!")}
+              onClick={() => handleFormsNavigation("/forms/farmer")}
             >
               <span className="mr-1">👨‍🌾</span>
               Join as Farmer
@@ -91,7 +103,10 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setIsFormsDropdownOpen(false);
+              }}
               className="text-foreground hover:bg-muted p-2 transition-all duration-200"
             >
               <div className="space-y-1">
@@ -118,7 +133,7 @@ const Navbar = () => {
         {/* Enhanced Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden border-t border-border`}
         >
           <div className="py-4 space-y-2 bg-background/50 backdrop-blur-sm">
@@ -165,10 +180,7 @@ const Navbar = () => {
 
               <Button
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium shadow-md transition-all duration-200 hover:shadow-lg"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  alert("Farmer registration coming soon!");
-                }}
+                onClick={() => handleFormsNavigation("/forms/farmer")}
               >
                 <span className="mr-2">👨‍🌾</span>
                 Join as Farmer

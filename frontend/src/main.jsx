@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage.jsx";
 import TraceabilityPage from "./pages/TraceabilityPage.jsx";
 import MarketplacePage from "./pages/MarketplacePage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
+import FormExamplesPage from "./pages/FormExamplesPage.jsx";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
             <Route path="traceability" element={<TraceabilityPage />} />
             <Route path="marketplace" element={<MarketplacePage />} />
             <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="forms" element={<FormExamplesPage />} />
           </Route>
         </Routes>
       </Router>
