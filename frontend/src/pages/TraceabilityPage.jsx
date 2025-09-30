@@ -84,95 +84,101 @@ const TraceabilityPage = () => {
   };
 
   return (
-    <div className="py-8 px-4 sm:px-6 lg:px-8 bg-background min-h-screen">
+    <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            🔍 Product Traceability System
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Verify the authenticity and track the complete journey of
-            agricultural products from farm to table using blockchain technology
-          </p>
+        {/* Header - ENHANCED GLASS EFFECT */}
+        <div className="text-center mb-12">
+          <Card className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl mb-6 inline-block">
+            <CardContent className="p-10">
+              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 drop-shadow-lg">
+                🔍 Product Traceability System
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto drop-shadow-md leading-relaxed">
+                Verify the authenticity and track the complete journey of
+                agricultural products from farm to table using blockchain
+                technology
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
-        {/* Tab Navigation */}
-        <Card className="mb-8">
-          <CardHeader>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-              <CardTitle className="flex items-center gap-2">
+        {/* Tab Navigation - ENHANCED GLASS EFFECT */}
+        <Card className="mb-10 backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+          <CardHeader className="pb-4">
+            <div className="flex flex-col sm:flex-row gap-6 items-center justify-between">
+              <CardTitle className="flex items-center gap-3 text-foreground drop-shadow-md text-2xl">
                 <span>🌾</span>
                 Choose Traceability Method
               </CardTitle>
-              <div className="flex rounded-lg border border-border overflow-hidden bg-muted/30">
+              <div className="flex rounded-xl border border-border/60 overflow-hidden bg-muted/50 backdrop-blur-lg shadow-lg">
                 <Button
                   variant={activeTab === "scanner" ? "default" : "ghost"}
                   onClick={() => setActiveTab("scanner")}
-                  className={`rounded-none border-none px-6 py-2 ${
+                  className={`rounded-none border-none px-8 py-3 transition-all duration-300 ${
                     activeTab === "scanner"
-                      ? "bg-emerald-600 text-white shadow-sm"
-                      : "hover:bg-muted"
+                      ? "bg-primary text-primary-foreground shadow-lg backdrop-blur-md"
+                      : "hover:bg-muted/70 text-foreground backdrop-blur-sm"
                   }`}
                 >
-                  <span className="mr-2">📱</span>
+                  <span className="mr-3 text-lg">📱</span>
                   QR Scanner
                 </Button>
                 <Button
                   variant={activeTab === "demo" ? "default" : "ghost"}
                   onClick={() => setActiveTab("demo")}
-                  className={`rounded-none border-none px-6 py-2 ${
+                  className={`rounded-none border-none px-8 py-3 transition-all duration-300 ${
                     activeTab === "demo"
-                      ? "bg-emerald-600 text-white shadow-sm"
-                      : "hover:bg-muted"
+                      ? "bg-primary text-primary-foreground shadow-lg backdrop-blur-md"
+                      : "hover:bg-muted/70 text-foreground backdrop-blur-sm"
                   }`}
                 >
-                  <span className="mr-2">🍅</span>
+                  <span className="mr-3 text-lg">🍅</span>
                   Demo Product
                 </Button>
                 {scannedProductData && (
                   <Button
                     variant={activeTab === "details" ? "default" : "ghost"}
                     onClick={() => setActiveTab("details")}
-                    className={`rounded-none border-none px-6 py-2 ${
+                    className={`rounded-none border-none px-8 py-3 transition-all duration-300 ${
                       activeTab === "details"
-                        ? "bg-emerald-600 text-white shadow-sm"
-                        : "hover:bg-muted"
+                        ? "bg-primary text-primary-foreground shadow-lg backdrop-blur-md"
+                        : "hover:bg-muted/70 text-foreground backdrop-blur-sm"
                     }`}
                   >
-                    <span className="mr-2">📋</span>
+                    <span className="mr-3 text-lg">📋</span>
                     Scanned Product
                   </Button>
                 )}
               </div>
             </div>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-              <div className="p-4 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg border border-emerald-200 dark:border-emerald-700">
-                <div className="text-2xl mb-2">📱</div>
-                <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-1">
+          <CardContent className="pt-4">
+            {/* ENHANCED GLASS FEATURE CARDS */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="p-6 bg-primary/15 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-4">📱</div>
+                <h3 className="font-bold text-primary mb-2 text-lg">
                   QR Code Scanner
                 </h3>
-                <p className="text-sm text-emerald-600 dark:text-emerald-400">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Scan product QR codes for instant verification
                 </p>
               </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-700">
-                <div className="text-2xl mb-2">🔗</div>
-                <h3 className="font-semibold text-blue-700 dark:text-blue-300 mb-1">
+              <div className="p-6 bg-secondary/20 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-4">🔗</div>
+                <h3 className="font-bold text-foreground mb-2 text-lg">
                   Blockchain Verified
                 </h3>
-                <p className="text-sm text-blue-600 dark:text-blue-400">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   All data secured on blockchain for transparency
                 </p>
               </div>
-              <div className="p-4 bg-purple-50 dark:bg-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-700">
-                <div className="text-2xl mb-2">📊</div>
-                <h3 className="font-semibold text-purple-700 dark:text-purple-300 mb-1">
+              <div className="p-6 bg-accent/20 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-4">📊</div>
+                <h3 className="font-bold text-foreground mb-2 text-lg">
                   Complete Journey
                 </h3>
-                <p className="text-sm text-purple-600 dark:text-purple-400">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Track every step from farm to consumer
                 </p>
               </div>
@@ -181,59 +187,59 @@ const TraceabilityPage = () => {
         </Card>
 
         {/* Content based on active tab */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {/* QR Scanner Tab */}
           {activeTab === "scanner" && (
-            <div>
-              <TraceabilityScanner onScanComplete={handleScanComplete} />
+            <div className="space-y-8">
+              <div className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl rounded-xl p-8 border">
+                <TraceabilityScanner onScanComplete={handleScanComplete} />
+              </div>
 
-              {/* How it works section */}
-              <Card className="mt-8">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span>ℹ️</span>
+              {/* How it works section - ENHANCED GLASS EFFECT */}
+              <Card className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+                <CardHeader className="pb-6">
+                  <CardTitle className="flex items-center gap-3 text-foreground text-2xl">
+                    <span className="text-2xl">ℹ️</span>
                     How QR Traceability Works
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-950/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-xl">📱</span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                      {
+                        icon: "📱",
+                        title: "1. Scan QR Code",
+                        desc: "Use your device camera to scan the product QR code",
+                      },
+                      {
+                        icon: "🔍",
+                        title: "2. Verify Identity",
+                        desc: "System verifies product authenticity on blockchain",
+                      },
+                      {
+                        icon: "📊",
+                        title: "3. View Journey",
+                        desc: "Access complete supply chain information",
+                      },
+                      {
+                        icon: "✅",
+                        title: "4. Make Decision",
+                        desc: "Make informed purchasing decisions with full transparency",
+                      },
+                    ].map((step, index) => (
+                      <div key={index} className="text-center">
+                        {/* ENHANCED GLASS STEP INDICATORS */}
+                        <div className="w-16 h-16 bg-primary/15 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl border border-border/30 hover:scale-110 transition-transform duration-300">
+                          <span className="text-2xl">{step.icon}</span>
+                        </div>
+                        <h4 className="font-bold mb-3 text-foreground text-lg">
+                          {step.title}
+                        </h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {step.desc}
+                        </p>
                       </div>
-                      <h4 className="font-semibold mb-2">1. Scan QR Code</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Use your device camera to scan the product QR code
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-950/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-xl">🔍</span>
-                      </div>
-                      <h4 className="font-semibold mb-2">2. Verify Identity</h4>
-                      <p className="text-sm text-muted-foreground">
-                        System verifies product authenticity on blockchain
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-purple-100 dark:bg-purple-950/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-xl">📊</span>
-                      </div>
-                      <h4 className="font-semibold mb-2">3. View Journey</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Access complete supply chain information
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-green-100 dark:bg-green-950/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-xl">✅</span>
-                      </div>
-                      <h4 className="font-semibold mb-2">4. Make Decision</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Make informed purchasing decisions with full
-                        transparency
-                      </p>
-                    </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -242,42 +248,48 @@ const TraceabilityPage = () => {
 
           {/* Demo Product Tab */}
           {activeTab === "demo" && (
-            <div>
+            <div className="backdrop-blur-xl bg-card/60 border-border/50 shadow-2xl rounded-xl p-6 border">
               <ProductTraceability />
             </div>
           )}
 
           {/* Scanned Product Details Tab */}
           {activeTab === "details" && scannedProductData && (
-            <div>
-              <div className="mb-6 p-4 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-700">
-                <div className="flex items-center gap-2 text-green-700 dark:text-green-300">
-                  <span className="text-xl">✅</span>
-                  <span className="font-semibold">
+            <div className="space-y-8">
+              {/* SUCCESS NOTIFICATION - ENHANCED GLASS */}
+              <div className="p-6 bg-primary/15 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl">
+                <div className="flex items-center gap-3 text-primary">
+                  <span className="text-2xl">✅</span>
+                  <span className="font-bold text-lg">
                     Product Successfully Scanned & Verified
                   </span>
                 </div>
-                <p className="text-sm text-green-600 dark:text-green-400 mt-1">
+                <p className="text-muted-foreground mt-2 leading-relaxed">
                   Showing detailed traceability information for scanned product:{" "}
-                  {scannedProductData.id}
+                  <span className="font-semibold text-primary">
+                    {scannedProductData.id}
+                  </span>
                 </p>
               </div>
 
-              <ProductTraceability
-                productId={scannedProductData.id}
-                initialData={scannedProductData}
-                onScanComplete={(result) =>
-                  console.log("Product scan completed:", result)
-                }
-              />
+              <div className="backdrop-blur-xl bg-card/60 border-border/50 shadow-2xl rounded-xl p-6 border">
+                <ProductTraceability
+                  productId={scannedProductData.id}
+                  initialData={scannedProductData}
+                  onScanComplete={(result) =>
+                    console.log("Product scan completed:", result)
+                  }
+                />
+              </div>
 
-              <div className="mt-6 flex gap-4 justify-center">
+              <div className="flex gap-6 justify-center">
+                {/* ENHANCED GLASS ACTION BUTTONS */}
                 <Button
                   onClick={() => setActiveTab("scanner")}
                   variant="outline"
-                  className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-md bg-card/30 border-border/60 shadow-lg"
                 >
-                  <span className="mr-2">📱</span>
+                  <span className="mr-3 text-xl">📱</span>
                   Scan Another Product
                 </Button>
                 <Button
@@ -285,9 +297,10 @@ const TraceabilityPage = () => {
                     setScannedProductData(null);
                     setActiveTab("scanner");
                   }}
-                  variant="outline"
+                  variant="secondary"
+                  className="px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-md bg-secondary/30 shadow-lg"
                 >
-                  <span className="mr-2">🔄</span>
+                  <span className="mr-3 text-xl">🔄</span>
                   Reset Scanner
                 </Button>
               </div>
@@ -295,43 +308,46 @@ const TraceabilityPage = () => {
           )}
         </div>
 
-        {/* Benefits Section */}
-        <Card className="mt-12">
-          <CardHeader>
-            <CardTitle className="text-center flex items-center justify-center gap-2">
-              <span>🏆</span>
+        {/* Benefits Section - ENHANCED GLASS EFFECT */}
+        <Card className="mt-16 backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+          <CardHeader className="pb-6">
+            <CardTitle className="text-center flex items-center justify-center gap-3 text-foreground text-2xl">
+              <span className="text-2xl">🏆</span>
               Benefits of Our Traceability System
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 rounded-xl border border-emerald-200 dark:border-emerald-700">
-                <div className="text-3xl mb-3">🔒</div>
-                <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">
-                  Blockchain Security
-                </h3>
-                <p className="text-sm text-emerald-600 dark:text-emerald-400">
-                  Immutable records ensure data integrity and prevent tampering
-                </p>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 rounded-xl border border-blue-200 dark:border-blue-700">
-                <div className="text-3xl mb-3">👨‍🌾</div>
-                <h3 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
-                  Farmer Verification
-                </h3>
-                <p className="text-sm text-blue-600 dark:text-blue-400">
-                  Verified farmer profiles with ratings and certifications
-                </p>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-xl border border-purple-200 dark:border-purple-700">
-                <div className="text-3xl mb-3">🌱</div>
-                <h3 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
-                  Sustainability Tracking
-                </h3>
-                <p className="text-sm text-purple-600 dark:text-purple-400">
-                  Monitor environmental impact and sustainable practices
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: "🔒",
+                  title: "Blockchain Security",
+                  desc: "Immutable records ensure data integrity and prevent tampering",
+                },
+                {
+                  icon: "👨‍🌾",
+                  title: "Farmer Verification",
+                  desc: "Verified farmer profiles with ratings and certifications",
+                },
+                {
+                  icon: "🌱",
+                  title: "Sustainability Tracking",
+                  desc: "Monitor environmental impact and sustainable practices",
+                },
+              ].map((benefit, index) => (
+                <div
+                  key={index}
+                  className="text-center p-8 bg-gradient-to-br from-primary/15 to-primary/5 backdrop-blur-lg rounded-2xl border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                >
+                  <div className="text-4xl mb-4">{benefit.icon}</div>
+                  <h3 className="font-bold text-foreground mb-3 text-lg">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {benefit.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
