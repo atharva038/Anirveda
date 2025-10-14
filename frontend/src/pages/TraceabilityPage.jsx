@@ -9,9 +9,7 @@ const TraceabilityPage = () => {
   const [activeTab, setActiveTab] = useState("scanner");
   const [scannedProductData, setScannedProductData] = useState(null);
 
-  // Handle scan result from TraceabilityScanner
   const handleScanComplete = (productData) => {
-    // Convert scanner result to ProductTraceability format
     const convertedData = {
       id: productData.id,
       name: productData.name || "Organic Product",
@@ -67,7 +65,6 @@ const TraceabilityPage = () => {
     setActiveTab("details");
   };
 
-  // Get appropriate icon for supply chain stage
   const getStageIcon = (stage) => {
     const stageIcons = {
       Farm: "🌱",
@@ -86,9 +83,8 @@ const TraceabilityPage = () => {
   return (
     <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto">
-        {/* Header - ENHANCED GLASS EFFECT */}
         <div className="text-center mb-12">
-          <Card className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl mb-6 inline-block">
+          <Card className="backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-zinc-900/50 border-border/50 dark:border-zinc-700/60 shadow-2xl mb-6 inline-block transition-colors">
             <CardContent className="p-10">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 drop-shadow-lg">
                 🔍 Product Traceability System
@@ -102,8 +98,7 @@ const TraceabilityPage = () => {
           </Card>
         </div>
 
-        {/* Tab Navigation - ENHANCED GLASS EFFECT */}
-        <Card className="mb-10 backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+        <Card className="mb-10 backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
           <CardHeader className="pb-4">
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-between">
               <CardTitle className="flex items-center gap-3 text-foreground drop-shadow-md text-2xl">
@@ -153,7 +148,6 @@ const TraceabilityPage = () => {
             </div>
           </CardHeader>
           <CardContent className="pt-4">
-            {/* ENHANCED GLASS FEATURE CARDS */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div className="p-6 bg-primary/15 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-3xl mb-4">📱</div>
@@ -186,17 +180,13 @@ const TraceabilityPage = () => {
           </CardContent>
         </Card>
 
-        {/* Content based on active tab */}
         <div className="space-y-8">
-          {/* QR Scanner Tab */}
           {activeTab === "scanner" && (
             <div className="space-y-8">
-              <div className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl rounded-xl p-8 border">
+              <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-8 border transition-colors">
                 <TraceabilityScanner onScanComplete={handleScanComplete} />
               </div>
-
-              {/* How it works section - ENHANCED GLASS EFFECT */}
-              <Card className="backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+              <Card className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
                 <CardHeader className="pb-6">
                   <CardTitle className="flex items-center gap-3 text-foreground text-2xl">
                     <span className="text-2xl">ℹ️</span>
@@ -228,7 +218,6 @@ const TraceabilityPage = () => {
                       },
                     ].map((step, index) => (
                       <div key={index} className="text-center">
-                        {/* ENHANCED GLASS STEP INDICATORS */}
                         <div className="w-16 h-16 bg-primary/15 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl border border-border/30 hover:scale-110 transition-transform duration-300">
                           <span className="text-2xl">{step.icon}</span>
                         </div>
@@ -246,17 +235,14 @@ const TraceabilityPage = () => {
             </div>
           )}
 
-          {/* Demo Product Tab */}
           {activeTab === "demo" && (
-            <div className="backdrop-blur-xl bg-card/60 border-border/50 shadow-2xl rounded-xl p-6 border">
+            <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-6 border transition-colors">
               <ProductTraceability />
             </div>
           )}
 
-          {/* Scanned Product Details Tab */}
           {activeTab === "details" && scannedProductData && (
             <div className="space-y-8">
-              {/* SUCCESS NOTIFICATION - ENHANCED GLASS */}
               <div className="p-6 bg-primary/15 backdrop-blur-lg rounded-xl border border-border/40 shadow-xl">
                 <div className="flex items-center gap-3 text-primary">
                   <span className="text-2xl">✅</span>
@@ -271,8 +257,7 @@ const TraceabilityPage = () => {
                   </span>
                 </p>
               </div>
-
-              <div className="backdrop-blur-xl bg-card/60 border-border/50 shadow-2xl rounded-xl p-6 border">
+              <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-6 border transition-colors">
                 <ProductTraceability
                   productId={scannedProductData.id}
                   initialData={scannedProductData}
@@ -281,9 +266,7 @@ const TraceabilityPage = () => {
                   }
                 />
               </div>
-
               <div className="flex gap-6 justify-center">
-                {/* ENHANCED GLASS ACTION BUTTONS */}
                 <Button
                   onClick={() => setActiveTab("scanner")}
                   variant="outline"
@@ -308,8 +291,7 @@ const TraceabilityPage = () => {
           )}
         </div>
 
-        {/* Benefits Section - ENHANCED GLASS EFFECT */}
-        <Card className="mt-16 backdrop-blur-xl bg-card/70 border-border/50 shadow-2xl">
+        <Card className="mt-16 backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
           <CardHeader className="pb-6">
             <CardTitle className="text-center flex items-center justify-center gap-3 text-foreground text-2xl">
               <span className="text-2xl">🏆</span>
@@ -325,7 +307,7 @@ const TraceabilityPage = () => {
                   desc: "Immutable records ensure data integrity and prevent tampering",
                 },
                 {
-                  icon: "👨‍🌾",
+                  icon: "��‍🌾",
                   title: "Farmer Verification",
                   desc: "Verified farmer profiles with ratings and certifications",
                 },

@@ -136,11 +136,11 @@ const FormExamplesPage = () => {
   ];
 
   return (
-    <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen bg-gradient-to-br from-emerald-50/50 via-background to-green-50/30 dark:from-emerald-950/20 dark:via-background dark:to-green-950/20">
+    <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="backdrop-blur-xl bg-card/80 dark:bg-card/60 border-border/50 shadow-2xl mb-6 inline-block rounded-2xl border">
+          <div className="backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-zinc-900/50 border-border/50 dark:border-zinc-700/60 shadow-2xl mb-6 inline-block rounded-2xl border transition-colors">
             <div className="p-10">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 drop-shadow-lg">
                 📝 Form Examples
@@ -155,7 +155,7 @@ const FormExamplesPage = () => {
 
         {/* Form Selection */}
         <div className="flex justify-center mb-8">
-          <div className="backdrop-blur-xl bg-card/80 dark:bg-card/60 border-border/50 shadow-lg rounded-xl border p-2 inline-flex flex-wrap gap-1">
+          <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-lg rounded-xl border p-2 inline-flex flex-wrap gap-1 transition-colors">
             {forms.map((form) => (
               <Button
                 key={form.id}
@@ -167,7 +167,7 @@ const FormExamplesPage = () => {
                 className={`transition-all duration-300 ${
                   activeForm === form.id
                     ? "bg-emerald-600 text-white shadow-lg hover:bg-emerald-700"
-                    : "hover:bg-muted/70 text-foreground hover:text-emerald-600 dark:hover:text-emerald-400"
+                    : "hover:bg-muted/70 dark:hover:bg-zinc-700/70 text-foreground hover:text-emerald-600 dark:hover:text-emerald-400"
                 }`}
               >
                 <span className="mr-2">{form.icon}</span>
@@ -208,7 +208,7 @@ const FormExamplesPage = () => {
         )}
 
         {/* Form Content */}
-        <div className="backdrop-blur-xl bg-card/80 dark:bg-card/60 border-border/50 shadow-2xl rounded-2xl border p-6">
+        <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-2xl border p-6 transition-colors">
           {activeForm === "product" ? (
             <div>
               <div className="mb-6">
