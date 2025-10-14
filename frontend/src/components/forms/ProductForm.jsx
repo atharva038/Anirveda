@@ -200,14 +200,14 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto bg-card/80 dark:bg-slate-800/90 border-border/50 dark:border-slate-700/50 backdrop-blur-xl shadow-2xl">
-      <CardHeader className="bg-card dark:bg-slate-800/95 border-b border-border/50 dark:border-slate-700/50">
-        <CardTitle className="flex items-center gap-2 text-foreground dark:text-slate-100">
+    <Card className="w-full max-w-2xl mx-auto backdrop-blur-xl bg-white/40 dark:bg-zinc-900/40 supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-zinc-900/30 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
+      <CardHeader className="backdrop-blur-sm bg-white/20 dark:bg-zinc-900/20 border-b border-border/50 dark:border-zinc-700/50">
+        <CardTitle className="flex items-center gap-2 text-foreground">
           <span>🛒</span>
           {initialData ? "Edit Product" : "Add New Product"}
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-card dark:bg-slate-800/90 p-6">
+      <CardContent className="backdrop-blur-sm bg-white/10 dark:bg-zinc-900/10 p-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}

@@ -200,14 +200,14 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto bg-card/80 dark:bg-slate-800/90 border-border/50 dark:border-slate-700/50 backdrop-blur-xl shadow-2xl">
-      <CardHeader className="bg-card dark:bg-slate-800/95 border-b border-border/50 dark:border-slate-700/50">
-        <CardTitle className="flex items-center gap-2 text-foreground dark:text-slate-100">
+    <Card className="w-full max-w-2xl mx-auto backdrop-blur-xl bg-white/40 dark:bg-zinc-900/40 supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-zinc-900/30 border-border/50 dark:border-zinc-700/60 shadow-2xl">
+      <CardHeader className="backdrop-blur-sm bg-white/20 dark:bg-zinc-900/20 border-b border-border/50 dark:border-slate-700/50">
+        <CardTitle className="flex items-center gap-2 text-foreground">
           <span>🛒</span>
           {initialData ? "Edit Product" : "Add New Product"}
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-card dark:bg-slate-800/90 p-6">
+      <CardContent className="backdrop-blur-sm bg-white/10 dark:bg-zinc-900/10 p-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}
@@ -220,13 +220,13 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="name"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Product Name *
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Organic Tomatoes"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400"
+                        className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground placeholder:text-muted-foreground "
                         {...field}
                       />
                     </FormControl>
@@ -240,17 +240,17 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="category"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Category *
                     </FormLabel>
                     <FormControl>
                       <select
                         {...field}
-                        className="flex h-9 w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-1 text-sm shadow-sm transition-colors text-foreground dark:text-slate-100 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground dark:placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-9 w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-1 text-sm shadow-sm transition-colors text-foreground file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <option
                           value=""
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           Select category
                         </option>
@@ -258,7 +258,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                           <option
                             key={cat.value}
                             value={cat.value}
-                            className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                            className="bg-background dark:bg-slate-700 text-foreground"
                           >
                             {cat.label}
                           </option>
@@ -278,7 +278,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="price"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Price (₹) *
                     </FormLabel>
                     <FormControl>
@@ -286,7 +286,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                         type="number"
                         step="0.01"
                         placeholder="0.00"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400"
+                        className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground placeholder:text-muted-foreground "
                         {...field}
                       />
                     </FormControl>
@@ -300,47 +300,47 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="unit"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Unit *
                     </FormLabel>
                     <FormControl>
                       <select
                         {...field}
-                        className="flex h-9 w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-1 text-sm shadow-sm transition-colors text-foreground dark:text-slate-100 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground dark:placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-9 w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-1 text-sm shadow-sm transition-colors text-foreground file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <option
                           value="kg"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           kg
                         </option>
                         <option
                           value="gram"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           gram
                         </option>
                         <option
                           value="liter"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           liter
                         </option>
                         <option
                           value="piece"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           piece
                         </option>
                         <option
                           value="bunch"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           bunch
                         </option>
                         <option
                           value="dozen"
-                          className="bg-background dark:bg-slate-700 text-foreground dark:text-slate-100"
+                          className="bg-background dark:bg-slate-700 text-foreground"
                         >
                           dozen
                         </option>
@@ -356,7 +356,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="stock"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Stock Quantity *
                     </FormLabel>
                     <FormControl>
@@ -364,7 +364,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                         type="number"
                         min="1"
                         placeholder="100"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400"
+                        className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground placeholder:text-muted-foreground "
                         {...field}
                       />
                     </FormControl>
@@ -380,14 +380,14 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
               name="description"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel className="text-foreground dark:text-slate-200">
+                  <FormLabel className="text-foreground ">
                     Description *
                   </FormLabel>
                   <FormControl>
                     <textarea
                       {...field}
                       placeholder="Describe your product, growing methods, quality, etc."
-                      className="flex min-h-[80px] w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground dark:placeholder:text-slate-400 text-foreground dark:text-slate-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex min-h-[80px] w-full rounded-md border border-input bg-background dark:bg-slate-700/50 dark:border-slate-600 px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground  text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                       rows={4}
                     />
                   </FormControl>
@@ -403,13 +403,13 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="harvestDate"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Harvest Date *
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="date"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100"
+                        className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground"
                         {...field}
                       />
                     </FormControl>
@@ -423,13 +423,13 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 name="expiryDate"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground ">
                       Expiry Date *
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="date"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100"
+                        className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground"
                         {...field}
                       />
                     </FormControl>
@@ -445,13 +445,13 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
               name="certifications"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel className="text-foreground dark:text-slate-200">
+                  <FormLabel className="text-foreground ">
                     Certifications
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Organic, Non-GMO, Pesticide Free (comma-separated)"
-                      className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400"
+                      className="backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground placeholder:text-muted-foreground "
                       {...field}
                     />
                   </FormControl>
@@ -469,7 +469,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
               name="images"
               render={({field: {onChange, ...field}}) => (
                 <FormItem>
-                  <FormLabel className="text-foreground dark:text-slate-200">
+                  <FormLabel className="text-foreground ">
                     Product Images *
                   </FormLabel>
                   <FormControl>
@@ -480,7 +480,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                         accept="image/*"
                         onChange={(e) => handleImageChange(e.target.files)}
                         disabled={isCompressing}
-                        className="cursor-pointer bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 file:bg-muted dark:file:bg-slate-600 file:text-foreground dark:file:text-slate-100 file:border-0 file:mr-4 file:py-2 file:px-4 file:rounded-md file:text-sm"
+                        className="cursor-pointer backdrop-blur-sm bg-white/50 dark:bg-zinc-800/50 border-border/50 dark:border-zinc-600/50 text-foreground file:bg-muted dark:file:bg-slate-600 file:text-foreground dark:file:text-slate-100 file:border-0 file:mr-4 file:py-2 file:px-4 file:rounded-md file:text-sm"
                         {...field}
                       />
 
@@ -551,7 +551,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 variant="outline"
                 onClick={() => form.reset()}
                 disabled={isLoading}
-                className="border-border dark:border-slate-600 text-foreground dark:text-slate-200 hover:bg-muted dark:hover:bg-slate-700"
+                className="border-border dark:border-slate-600 text-foreground  hover:bg-muted dark:hover:bg-slate-700"
               >
                 🔄 Reset
               </Button>
