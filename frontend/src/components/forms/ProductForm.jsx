@@ -201,36 +201,36 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
 
   return (
     <Card className="w-full max-w-2xl mx-auto backdrop-blur-xl bg-white/40 dark:bg-zinc-900/40 supports-[backdrop-filter]:bg-white/30 dark:supports-[backdrop-filter]:bg-zinc-900/30 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
-      <CardHeader className="backdrop-blur-sm bg-white/20 dark:bg-zinc-900/20 border-b border-border/50 dark:border-zinc-700/50">
-        <CardTitle className="flex items-center gap-2 text-foreground">
+      <CardHeader className="backdrop-blur-sm bg-white/20 dark:bg-zinc-900/20 border-b border-border/50 dark:border-zinc-700/50 p-4 sm:p-6">
+        <CardTitle className="flex items-center gap-2 text-foreground text-lg sm:text-xl">
           <span>🛒</span>
           {initialData ? "Edit Product" : "Add New Product"}
         </CardTitle>
       </CardHeader>
-      <CardContent className="backdrop-blur-sm bg-white/10 dark:bg-zinc-900/10 p-6">
+      <CardContent className="backdrop-blur-sm bg-white/10 dark:bg-zinc-900/10 p-4 sm:p-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             {/* Basic Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="name"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel className="text-foreground dark:text-slate-200">
+                    <FormLabel className="text-foreground dark:text-slate-200 text-sm">
                       Product Name *
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Organic Tomatoes"
-                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400"
+                        className="bg-background dark:bg-slate-700/50 border-border dark:border-slate-600 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400 h-10 sm:h-9 text-base sm:text-sm"
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage className="text-red-500 dark:text-red-400" />
+                    <FormMessage className="text-red-500 dark:text-red-400 text-xs sm:text-sm" />
                   </FormItem>
                 )}
               />
@@ -272,7 +272,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
             </div>
 
             {/* Price and Stock */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="price"
@@ -397,7 +397,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
             />
 
             {/* Dates */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="harvestDate"
@@ -493,13 +493,13 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
 
                       {/* Image Previews */}
                       {imagePreviews.length > 0 && (
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                           {imagePreviews.map((preview, index) => (
                             <div key={index} className="relative group">
                               <img
                                 src={preview.url}
                                 alt={`Preview ${index + 1}`}
-                                className="w-full h-32 object-cover rounded-lg border border-border dark:border-slate-600"
+                                className="w-full h-24 sm:h-32 object-cover rounded-lg border border-border dark:border-slate-600"
                               />
                               <button
                                 type="button"
@@ -527,11 +527,11 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
             />
 
             {/* Submit Button */}
-            <div className="flex gap-4 pt-6 border-t border-border dark:border-slate-700">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-border dark:border-slate-700">
               <Button
                 type="submit"
                 disabled={isLoading || isCompressing}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg"
+                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg h-11 sm:h-10 text-base sm:text-sm"
               >
                 {isLoading ? (
                   <>
@@ -551,7 +551,7 @@ const ProductForm = ({onSubmit, initialData = null, isLoading = false}) => {
                 variant="outline"
                 onClick={() => form.reset()}
                 disabled={isLoading}
-                className="border-border dark:border-slate-600 text-foreground dark:text-slate-200 hover:bg-muted dark:hover:bg-slate-700"
+                className="border-border dark:border-slate-600 text-foreground dark:text-slate-200 hover:bg-muted dark:hover:bg-slate-700 h-11 sm:h-10 text-base sm:text-sm"
               >
                 🔄 Reset
               </Button>

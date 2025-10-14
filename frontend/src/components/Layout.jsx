@@ -1,9 +1,17 @@
 import {Outlet} from "react-router-dom";
 import {useState, useEffect} from "react";
 import Navbar from "./Navbar";
+import {useTheme} from "./ThemeProvider";
 
 const Layout = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const {theme} = useTheme();
+
+  // Determine if dark mode is active
+  const isDark =
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   // Preload background image
   useEffect(() => {
@@ -42,7 +50,7 @@ const Layout = () => {
 
         {/* Pattern overlay for texture */}
         <div
-          className="absolute inset-0 opacity-20 dark:opacity-10"
+          className="absolute inset-0 opacity-10 transition-opacity duration-500"
           style={{
             backgroundImage: `radial-gradient(circle at 25px 25px, rgba(59, 130, 246, 0.1) 2px, transparent 0),
                              radial-gradient(circle at 75px 75px, rgba(16, 185, 129, 0.1) 2px, transparent 0)`,
@@ -50,11 +58,25 @@ const Layout = () => {
           }}
         />
 
-        {/* Theme-aware overlay for readability */}
-        <div className="absolute inset-0 bg-white/20 dark:bg-black/60" />
+        {/* Theme-aware overlay - Light in light mode, Dark in dark mode */}
+        <div
+          className="absolute inset-0 transition-all duration-500"
+          style={{
+            backgroundColor: isDark
+              ? "rgba(0, 0, 0, 0.60)"
+              : "rgba(255, 255, 255, 0.15)",
+          }}
+        />
 
-        {/* Gradient overlay for better content readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-white/10 dark:from-black/50 dark:via-black/20 dark:to-black/30" />
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0 transition-all duration-500"
+          style={{
+            backgroundImage: isDark
+              ? "linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3))"
+              : "linear-gradient(to top, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.15))",
+          }}
+        />
       </div>
 
       {/* Animated floating elements */}

@@ -84,12 +84,12 @@ const TraceabilityPage = () => {
     <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <Card className="backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-zinc-900/50 border-border/50 dark:border-zinc-700/60 shadow-2xl mb-6 inline-block transition-colors">
+          <Card className="bg-background/95 backdrop-blur-md border border-border shadow-xl mb-6 inline-block transition-colors">
             <CardContent className="p-10">
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 drop-shadow-lg">
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-md">
                 🔍 Product Traceability System
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto drop-shadow-md leading-relaxed">
+              <p className="text-xl text-gray-800 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Verify the authenticity and track the complete journey of
                 agricultural products from farm to table using blockchain
                 technology
@@ -98,10 +98,10 @@ const TraceabilityPage = () => {
           </Card>
         </div>
 
-        <Card className="mb-10 backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
+        <Card className="mb-10 bg-background/95 backdrop-blur-md border border-border shadow-xl transition-colors">
           <CardHeader className="pb-4">
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-between">
-              <CardTitle className="flex items-center gap-3 text-foreground drop-shadow-md text-2xl">
+              <CardTitle className="flex items-center gap-3 text-gray-900 dark:text-white drop-shadow-md text-2xl">
                 <span>🌾</span>
                 Choose Traceability Method
               </CardTitle>
@@ -183,12 +183,12 @@ const TraceabilityPage = () => {
         <div className="space-y-8">
           {activeTab === "scanner" && (
             <div className="space-y-8">
-              <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-8 border transition-colors">
+              <div className="bg-background/95 backdrop-blur-md border border-border shadow-xl rounded-xl p-8 transition-colors">
                 <TraceabilityScanner onScanComplete={handleScanComplete} />
               </div>
-              <Card className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
+              <Card className="bg-background/95 backdrop-blur-md border border-border shadow-xl transition-colors">
                 <CardHeader className="pb-6">
-                  <CardTitle className="flex items-center gap-3 text-foreground text-2xl">
+                  <CardTitle className="flex items-center gap-3 text-gray-900 dark:text-white text-2xl">
                     <span className="text-2xl">ℹ️</span>
                     How QR Traceability Works
                   </CardTitle>
@@ -236,7 +236,7 @@ const TraceabilityPage = () => {
           )}
 
           {activeTab === "demo" && (
-            <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-6 border transition-colors">
+            <div className="bg-background/95 backdrop-blur-md border border-border shadow-xl rounded-xl p-6 transition-colors">
               <ProductTraceability />
             </div>
           )}
@@ -257,7 +257,7 @@ const TraceabilityPage = () => {
                   </span>
                 </p>
               </div>
-              <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-xl p-6 border transition-colors">
+              <div className="bg-background/95 backdrop-blur-md border border-border shadow-xl rounded-xl p-6 transition-colors">
                 <ProductTraceability
                   productId={scannedProductData.id}
                   initialData={scannedProductData}
@@ -291,9 +291,9 @@ const TraceabilityPage = () => {
           )}
         </div>
 
-        <Card className="mt-16 backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl transition-colors">
+        <Card className="mt-16 bg-background/95 backdrop-blur-md border border-border shadow-xl transition-colors">
           <CardHeader className="pb-6">
-            <CardTitle className="text-center flex items-center justify-center gap-3 text-foreground text-2xl">
+            <CardTitle className="text-center flex items-center justify-center gap-3 text-gray-900 dark:text-white text-2xl">
               <span className="text-2xl">🏆</span>
               Benefits of Our Traceability System
             </CardTitle>

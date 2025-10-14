@@ -136,16 +136,16 @@ const FormExamplesPage = () => {
   ];
 
   return (
-    <div className="relative z-20 pt-24 pb-12 px-4 sm:px-6 lg:px-8 min-h-screen">
+    <div className="relative z-20 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 px-3 sm:px-4 md:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-zinc-900/50 border-border/50 dark:border-zinc-700/60 shadow-2xl mb-6 inline-block rounded-2xl border transition-colors">
-            <div className="p-10">
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 drop-shadow-lg">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <div className="bg-background/95 backdrop-blur-md border border-border shadow-xl mb-4 sm:mb-6 inline-block rounded-xl sm:rounded-2xl transition-colors">
+            <div className="p-6 sm:p-8 md:p-10">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 drop-shadow-md">
                 📝 Form Examples
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto drop-shadow-md leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-800 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Comprehensive React forms using react-hook-form with Shadcn
                 components, validation, file uploads, and mobile optimization.
               </p>
@@ -154,8 +154,8 @@ const FormExamplesPage = () => {
         </div>
 
         {/* Form Selection */}
-        <div className="flex justify-center mb-8">
-          <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-lg rounded-xl border p-2 inline-flex flex-wrap gap-1 transition-colors">
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="bg-background/95 backdrop-blur-md border border-border shadow-lg rounded-xl p-2 flex flex-col sm:flex-row flex-wrap gap-2 w-full sm:w-auto sm:inline-flex transition-colors">
             {forms.map((form) => (
               <Button
                 key={form.id}
@@ -208,12 +208,12 @@ const FormExamplesPage = () => {
         )}
 
         {/* Form Content */}
-        <div className="backdrop-blur-xl bg-white/55 dark:bg-zinc-900/55 supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-zinc-900/40 border-border/50 dark:border-zinc-700/60 shadow-2xl rounded-2xl border p-6 transition-colors">
+        <div className="bg-background/95 backdrop-blur-md border border-border shadow-xl rounded-2xl p-6 transition-colors">
           {activeForm === "product" ? (
             <div>
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <h2 className="text-2xl font-bold text-foreground">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                     {forms.find((f) => f.id === "product").title}
                   </h2>
                   <Badge
